@@ -7,8 +7,8 @@ function Toast({ show, onClose }) {
   return (
     <div
       role="status"
-      className={`pointer-events-none fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full bg-forest-800 px-6 py-3 text-sm font-medium text-cream-50 shadow-tilt ring-1 ring-gold-400/60 transition-all duration-500 ${
-        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      className={`fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full bg-forest-800 px-6 py-3 text-sm font-medium text-cream-50 shadow-tilt ring-1 ring-gold-400/60 transition-all duration-500 ${
+        show ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"
       }`}
       onClick={onClose}
     >
