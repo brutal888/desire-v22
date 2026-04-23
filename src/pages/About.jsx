@@ -40,7 +40,7 @@ export default function About() {
                 key={item.year}
                 delay={i * 70}
                 className={`relative grid gap-6 pl-12 sm:grid-cols-2 sm:gap-10 sm:pl-0 ${
-                  i % 2 === 0 ? "" : "sm:[&>*:first-child]:order-2"
+                  i % 2 === 0 ? "" : "sm:[&>div:first-of-type]:order-2"
                 }`}
               >
                 <span

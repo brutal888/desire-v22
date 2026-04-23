@@ -9,8 +9,6 @@ function buildSeedData(count) {
   const speeds = new Float32Array(count);
   const driftX = new Float32Array(count);
   const driftZ = new Float32Array(count);
-  const sizes = new Float32Array(count);
-  const opacities = new Float32Array(count);
   for (let i = 0; i < count; i++) {
     positions[i * 3] = (Math.random() - 0.5) * 20;
     positions[i * 3 + 1] = Math.random() * 14 - 7;
@@ -18,10 +16,8 @@ function buildSeedData(count) {
     speeds[i] = 0.08 + Math.random() * 0.28;
     driftX[i] = (Math.random() - 0.5) * 0.35;
     driftZ[i] = (Math.random() - 0.5) * 0.35;
-    sizes[i] = 0.04 + Math.random() * 0.12;
-    opacities[i] = 0.3 + Math.random() * 0.7;
   }
-  return { positions, speeds, driftX, driftZ, sizes, opacities };
+  return { positions, speeds, driftX, driftZ };
 }
 
 function Seeds() {
@@ -52,11 +48,6 @@ function Seeds() {
         <bufferAttribute
           attach="attributes-position"
           args={[data.positions, 3]}
-          count={COUNT}
-        />
-        <bufferAttribute
-          attach="attributes-aSize"
-          args={[data.sizes, 1]}
           count={COUNT}
         />
       </bufferGeometry>

@@ -20,6 +20,13 @@ export default function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const handler = () => { if (mq.matches) setOpen(false); };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const closeDrawer = () => setOpen(false);
 
   return (
