@@ -28,6 +28,10 @@ export default function useCountUp(target, { duration = 1800, enabled = true } =
 
 export function formatCompact(n) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(n % 1_000 === 0 ? 0 : 1)}K`;
+  if (n >= 1_000) {
+    const formatted = (n / 1_000).toFixed(n % 1_000 === 0 ? 0 : 1);
+    if (parseFloat(formatted) >= 1000) return `${(n / 1_000_000).toFixed(1)}M`;
+    return `${formatted}K`;
+  }
   return n.toLocaleString();
 }

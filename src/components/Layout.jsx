@@ -8,7 +8,7 @@ export default function Layout() {
   const mainRef = useRef(null);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    window.scrollTo({ top: 0, behavior: "instant" });
     const el = mainRef.current;
     if (el) {
       el.style.opacity = "0";
