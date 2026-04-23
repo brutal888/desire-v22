@@ -1,7 +1,18 @@
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+
+function PageLoader() {
+  return (
+    <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <span className="inline-block h-10 w-10 animate-spin-slow rounded-full border-2 border-forest-500/30 border-t-forest-500" />
+        <span className="text-sm text-ink-800/60">Loading…</span>
+      </div>
+    </div>
+  );
+}
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -26,7 +37,9 @@ export default function Layout() {
         key={pathname}
         className="page-enter flex-1 pt-20 transition-opacity duration-500"
       >
-        <Outlet />
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </div>
