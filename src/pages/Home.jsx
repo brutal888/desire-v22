@@ -127,9 +127,9 @@ export default function Home() {
                 {[0, 1, 2, 3, 4, 5].map((i) => (
                   <span
                     key={i}
-                    className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-400 shadow-gold animate-pulse-soft"
+                    className="absolute left-1/2 top-1/2 h-2.5 w-2.5 rounded-full bg-gold-400 shadow-gold animate-pulse-soft"
                     style={{
-                      transform: `rotate(${(i * 360) / 6}deg) translate(200px) rotate(-${
+                      transform: `translate(-50%, -50%) rotate(${(i * 360) / 6}deg) translate(200px) rotate(-${
                         (i * 360) / 6
                       }deg)`,
                       animationDelay: `${i * 0.4}s`,

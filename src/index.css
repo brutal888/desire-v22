@@ -150,6 +150,18 @@ a {
   }
 }
 
+/* Explicit keyframes — Tailwind JIT only generates these when animate-* classes
+   are used in content files, so custom CSS classes need them declared here. */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 /* Three.js canvas must be block-level to avoid extra space */
 canvas {
   display: block;
